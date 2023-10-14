@@ -22,8 +22,8 @@ class AddTaskBottomSheetView extends StatelessWidget {
               height: 40,
               width: 250,
               child: TextField(
-                onSubmitted: (value){
-                  if(entryController.text.isNotEmpty){
+                onSubmitted: (value) {
+                  if (entryController.text.isNotEmpty) {
                     Task newTask = Task(entryController.text, false);
                     viewModel.addTask(newTask);
                     entryController.clear();
@@ -34,24 +34,18 @@ class AddTaskBottomSheetView extends StatelessWidget {
                 autofocus: true,
                 autocorrect: false,
                 decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.only(bottom: 5),
-                  filled: true,
-                  fillColor: viewModel.onPrimary,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: const BorderSide(
-                      width: 0,
-                      style: BorderStyle.none
-                    )
-                  )
-                ),
+                    contentPadding: const EdgeInsets.only(bottom: 5),
+                    filled: true,
+                    fillColor: viewModel.onPrimary,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: const BorderSide(
+                            width: 0, style: BorderStyle.none))),
                 textAlign: TextAlign.center,
                 textAlignVertical: TextAlignVertical.center,
                 cursorColor: viewModel.onSecondary,
                 style: TextStyle(
-                  color: viewModel.onSecondary,
-                  fontWeight: FontWeight.w500
-                ),
+                    color: viewModel.onSecondary, fontWeight: FontWeight.w500),
               ),
             ),
           ),

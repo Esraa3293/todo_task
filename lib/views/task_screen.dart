@@ -5,6 +5,8 @@ import 'package:todo_task/views/task_info_view.dart';
 import 'package:todo_task/views/task_list_view.dart';
 
 class TaskScreen extends StatelessWidget {
+  static const String routeName = "taskScreen";
+
   const TaskScreen({super.key});
 
   @override
@@ -18,14 +20,8 @@ class TaskScreen extends StatelessWidget {
               flex: 1,
               child: HeaderView(),
             ),
-            Expanded(
-              flex: 1,
-              child: TaskInfoView()
-            ),
-            Expanded(
-              flex: 7,
-              child: TaskListView()
-            ),
+            Expanded(flex: 1, child: TaskInfoView()),
+            Expanded(flex: 7, child: TaskListView()),
           ],
         ),
       ),
