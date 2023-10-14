@@ -10,23 +10,90 @@ class TaskInfoView extends StatelessWidget {
     return Consumer<AppViewModel>(
       builder: (context, viewModel, child) {
         return Container(
-          decoration: BoxDecoration(
-              color: viewModel.onPrimary,
-              borderRadius: BorderRadius.circular(10)),
-          child: Column(
+          margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          child: Row(
             children: [
-              Text(
-                "${viewModel.numTasks}",
-                style: TextStyle(
-                    color: viewModel.secondary,
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold),
+              Expanded(
+                flex: 1,
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: viewModel.onPrimary,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: FittedBox(
+                            child: Text(
+                              "${viewModel.numTasks}",
+                              style: TextStyle(
+                                  color: viewModel.secondary,
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: FittedBox(
+                            child: Text(
+                              "Total Tasks",
+                              style: TextStyle(
+                                  color: viewModel.onSecondary, fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ),
-              Text(
-                "Total Tasks",
-                style: TextStyle(
-                    color: viewModel.onSecondary, fontWeight: FontWeight.w600),
-              )
+              const SizedBox(width: 20,),
+              Expanded(
+                flex: 1,
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: viewModel.onPrimary,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: FittedBox(
+                            child: Text(
+                              "${viewModel.numTasksRemaining}",
+                              style: TextStyle(
+                                  color: viewModel.secondary,
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: FittedBox(
+                            child: Text(
+                              "Remaining",
+                              style: TextStyle(
+                                  color: viewModel.onSecondary, fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         );

@@ -6,15 +6,34 @@ class AppViewModel extends ChangeNotifier {
   List<Task> tasks = [];
   User user = User("Esraa");
 
-  Color primary = Colors.grey.shade50;
-  Color onPrimary = Colors.grey.shade200;
-  Color secondary = Colors.grey.shade800;
-  Color onSecondary = Colors.grey.shade900;
+  Color primary = Colors.red.shade50;
+  Color onPrimary = Colors.red.shade200;
+  Color secondary = Colors.red.shade800;
+  Color onSecondary = Colors.red.shade900;
 
   int get numTasks => tasks.length;
 
+  int get numTasksRemaining => tasks.where((task) => !task.complete).length;
+
+  String get username => user.username;
+
   void addTask(Task newTask) {
     tasks.add(newTask);
+    notifyListeners();
+  }
+
+  void updateUsername(String newUsername) {
+    user.username = newUsername;
+    notifyListeners();
+  }
+
+  void deleteAllTasks(){
+    tasks.clear();
+    notifyListeners();
+  }
+
+  void deleteCompletedTasks(){
+    tasks = tasks.where((task) => !task.complete).toList();
     notifyListeners();
   }
 
@@ -22,7 +41,7 @@ class AppViewModel extends ChangeNotifier {
     return tasks[taskIndex].title;
   }
 
-  void deleteTask(int taskIndex){
+  void deleteTask(int taskIndex) {
     tasks.removeAt(taskIndex);
   }
 
