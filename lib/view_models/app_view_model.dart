@@ -5,11 +5,12 @@ import 'package:todo_task/models/user_model.dart';
 class AppViewModel extends ChangeNotifier {
   List<Task> tasks = [];
   User user = User("Esraa");
+  String language = "en";
 
-  Color primary = Colors.red.shade50;
-  Color onPrimary = Colors.red.shade200;
-  Color secondary = Colors.red.shade800;
-  Color onSecondary = Colors.red.shade900;
+  Color primary = Colors.blue.shade50;
+  Color onPrimary = Colors.blue.shade200;
+  Color secondary = Colors.blue.shade800;
+  Color onSecondary = Colors.blue.shade900;
 
   int get numTasks => tasks.length;
 
@@ -27,12 +28,12 @@ class AppViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void deleteAllTasks(){
+  void deleteAllTasks() {
     tasks.clear();
     notifyListeners();
   }
 
-  void deleteCompletedTasks(){
+  void deleteCompletedTasks() {
     tasks = tasks.where((task) => !task.complete).toList();
     notifyListeners();
   }
@@ -51,6 +52,11 @@ class AppViewModel extends ChangeNotifier {
 
   void setTaskValue(int taskIndex, bool taskValue) {
     tasks[taskIndex].complete = taskValue;
+    notifyListeners();
+  }
+
+  void changeLanguage(String lang) {
+    language = lang;
     notifyListeners();
   }
 

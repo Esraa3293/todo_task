@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_task/view_models/app_view_model.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TaskInfoView extends StatelessWidget {
   const TaskInfoView({super.key});
@@ -42,7 +43,7 @@ class TaskInfoView extends StatelessWidget {
                           alignment: Alignment.topCenter,
                           child: FittedBox(
                             child: Text(
-                              "Total Tasks",
+                              AppLocalizations.of(context)!.totalTasks,
                               style: TextStyle(
                                   color: viewModel.onSecondary, fontWeight: FontWeight.w600),
                             ),
@@ -83,7 +84,7 @@ class TaskInfoView extends StatelessWidget {
                           alignment: Alignment.topCenter,
                           child: FittedBox(
                             child: Text(
-                              "Remaining",
+                              AppLocalizations.of(context)!.remaining,
                               style: TextStyle(
                                   color: viewModel.onSecondary, fontWeight: FontWeight.w600),
                             ),

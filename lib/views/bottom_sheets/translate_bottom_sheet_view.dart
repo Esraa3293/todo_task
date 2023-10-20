@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:todo_task/view_models/app_view_model.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class DeleteBottomSheetView extends StatelessWidget {
-  const DeleteBottomSheetView({super.key});
+class TranslateBottomSheetView extends StatelessWidget {
+  const TranslateBottomSheetView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class DeleteBottomSheetView extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  viewModel.deleteAllTasks();
+                  viewModel.changeLanguage("en");
                   Navigator.of(context).pop();
                 },
                 style: ElevatedButton.styleFrom(
@@ -27,14 +27,14 @@ class DeleteBottomSheetView extends StatelessWidget {
                         fontWeight: FontWeight.w700, fontSize: 16),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20))),
-                child: Text(AppLocalizations.of(context)!.deleteAll),
+                child: Text(AppLocalizations.of(context)!.english),
               ),
               const SizedBox(
                 width: 15,
               ),
               ElevatedButton(
                 onPressed: () {
-                  viewModel.deleteCompletedTasks();
+                  viewModel.changeLanguage("ar");
                   Navigator.of(context).pop();
                 },
                 style: ElevatedButton.styleFrom(
@@ -44,7 +44,7 @@ class DeleteBottomSheetView extends StatelessWidget {
                         fontWeight: FontWeight.w700, fontSize: 16),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20))),
-                child: Text(AppLocalizations.of(context)!.deleteCompleted),
+                child: Text(AppLocalizations.of(context)!.arabic),
               ),
             ],
           ),

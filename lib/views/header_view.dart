@@ -3,6 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:todo_task/view_models/app_view_model.dart';
 import 'package:todo_task/views/bottom_sheets/delete_bottom_sheet_view.dart';
 import 'package:todo_task/views/bottom_sheets/settings_bottom_sheet_view.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'bottom_sheets/translate_bottom_sheet_view.dart';
 
 class HeaderView extends StatelessWidget {
   const HeaderView({super.key});
@@ -26,7 +29,7 @@ class HeaderView extends StatelessWidget {
                           child: FittedBox(
                             fit: BoxFit.fitHeight,
                             child: Text(
-                              "Welcome back,",
+                              "${AppLocalizations.of(context)!.welcomeMessage},",
                               style: TextStyle(
                                   fontSize: 23,
                                   fontWeight: FontWeight.w400,
@@ -75,6 +78,18 @@ class HeaderView extends StatelessWidget {
                     },
                     icon: Icon(
                       Icons.settings,
+                      color: viewModel.secondary,
+                      size: 40,
+                    ))),
+            Expanded(
+                flex: 1,
+                child: IconButton(
+                    onPressed: () {
+                      viewModel.bottomSheetBuilder(
+                          const TranslateBottomSheetView(), context);
+                    },
+                    icon: Icon(
+                      Icons.translate,
                       color: viewModel.secondary,
                       size: 40,
                     ))),

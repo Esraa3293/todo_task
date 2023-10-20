@@ -1,0 +1,9 @@
+{
+  "welcomeMessage": "Welcome back",
+  "deleteAll": "Delete All",
+  "deleteCompleted": "Delete Completed",
+  "totalTasks": "Total Tasks",
+  "remaining": "Remaining",
+  "english": "English",
+  "arabic": "Arabic"
+}

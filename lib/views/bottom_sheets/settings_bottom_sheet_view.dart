@@ -22,8 +22,8 @@ class SettingsBottomSheetView extends StatelessWidget {
               width: 250,
               child: TextField(
                 onSubmitted: (value){
-                  if(entryController.text.isNotEmpty){
-                    viewModel.updateUsername(entryController.text);
+                  if(value.isNotEmpty){
+                    viewModel.updateUsername(value);
                   }
                   Navigator.of(context).pop();
                 },
