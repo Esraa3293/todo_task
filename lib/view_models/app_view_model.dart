@@ -1,6 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+import 'package:todo_task/models/TodoList.dart';
 import 'package:todo_task/models/task_model.dart';
 import 'package:todo_task/models/user_model.dart';
+import 'package:http/http.dart' as http;
 
 class AppViewModel extends ChangeNotifier {
   List<Task> tasks = [];
@@ -74,5 +79,13 @@ class AppViewModel extends ChangeNotifier {
         return bottomSheetView;
       },
     );
+  }
+
+  Future<TodoList> getTodoList() async{
+    Uri URL = Uri.https("jsonplaceholder.typicode.com", "/todos");
+    Response response = await http.get(URL);
+    var jsonResponse = jsonDecode(response.body);
+    TodoList todoList = TodoList.fromJson(jsonResponse);
+    return todoList;
   }
 }
